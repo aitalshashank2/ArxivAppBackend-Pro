@@ -1,0 +1,9 @@
+DEBUG: TRUE
+SECRET_KEY: your/secret/key
+
+DATABASE:
+    HOST: /host/for/MySQL/Server/ (Ex -> 127.0.0.1)
+    PORT: /port/for/MySQL/Server/ (Ex -> 3306)
+    NAME: ArxivAppDB
+    USER: /MySQL/User/
+    PASSWORD: /password/of/MySQL/User/
