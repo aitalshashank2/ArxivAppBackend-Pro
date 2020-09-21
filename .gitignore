@@ -4,3 +4,5 @@ config.yml
 
 ArxivAppBackend/__pycache__
 ArxivApp/__pycache__
+
+ArxivApp/migrations/__pycache__

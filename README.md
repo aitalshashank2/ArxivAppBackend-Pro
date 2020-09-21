@@ -29,6 +29,8 @@ This repository has the backend for ArxApp made as a submission for the course C
 	pip 20.0.3 from ... (python 3.8)
 	```
 
+- You need to have ```libmysqlclient-dev``` in order to connect to a MySQL Database.
+
 - Install all the necessary dependencies using
 	```
 	pip install -r requirements.txt
