@@ -48,3 +48,7 @@ This repository has the backend for ArxApp made as a submission for the course C
 	```
 
 - Now, check if django development server is up and running on port 8000 on your local computer.
+
+---
+
+Happy Research!
