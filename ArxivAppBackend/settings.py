@@ -112,6 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ADMIN_SITE_URL = 'admin/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
