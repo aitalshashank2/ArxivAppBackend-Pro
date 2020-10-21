@@ -17,8 +17,8 @@ class Paper(Model):
     blank=False,
   )
 
-  author = models.CharField(
-    max_length=127,
+  authors = models.CharField(
+    max_length=1023,
     null=False,
     blank=False,
   )
@@ -55,21 +55,23 @@ class Paper(Model):
   html_url = models.TextField(
     null=True,
     blank=True,
-    unique=True,
   )
 
   pdf_url = models.TextField(
     null=True,
-    blank=True
-    unique=True,
+    blank=True,
   )
 
   datetime_paper_published = models.DateTimeField(
     null=False,
-    blank=False
+    blank=False,
   )
 
   datetime_paper_updated = models.DateTimeField(
     null=False,
-    blank=False
+    blank=False,
   )
+
+  def __str__(self):
+
+    return f'{self.title} - by - {self.authors}'

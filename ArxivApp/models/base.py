@@ -10,8 +10,5 @@ class Model(models.Model):
   datetime_modified = models.DateTimeField(auto_now=True)
 
   class Meta:
-        """
-        Meta class for Model
-        """
         
         abstract = True

@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'ArxivApp.apps.ArxivappConfig',
+    'ArxivApp',
 ]
 
 MIDDLEWARE = [
@@ -113,6 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 ADMIN_SITE_URL = 'admin/'
+AUTH_USER_MODEL = 'ArxivApp.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

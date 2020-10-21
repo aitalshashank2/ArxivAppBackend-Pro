@@ -1,5 +1,5 @@
 from ArxivApp.models.base import Model
-from ArxivApp.models.user import User
+from django.conf import settings
 from django.db import models
 
 class Blog(Model):
@@ -15,7 +15,7 @@ class Blog(Model):
   body = models.TextField()
 
   author = models.ForeignKey(
-    User,
+    settings.AUTH_USER_MODEL,
     null=False,
     on_delete=models.CASCADE,
   )
@@ -31,3 +31,7 @@ class Blog(Model):
     null=False,
     blank=False,
   )
+
+  def __str__(self):
+    
+    return f'{self.title} - by - {self.author.full_name}'
