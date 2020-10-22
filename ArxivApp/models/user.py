@@ -35,7 +35,13 @@ class User(AbstractUser):
 
   bookmarks = models.ManyToManyField(
     'ArxivApp.Paper',
-    related_name='users',
+    related_name='bookmark_users',
+    blank=True,
+  )
+
+  downloads = models.ManyToManyField(
+    'ArxivApp.Paper',
+    related_name='download_users',
     blank=True,
   )
 
