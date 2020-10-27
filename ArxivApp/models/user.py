@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from ArxivApp.models.paper import Paper
 from ArxivApp.constants import defaults
 
 class User(AbstractUser):
@@ -42,6 +41,7 @@ class User(AbstractUser):
   downloads = models.ManyToManyField(
     'ArxivApp.Paper',
     related_name='download_users',
+    through='ArxivApp.DownloadLocation',
     blank=True,
   )
 
