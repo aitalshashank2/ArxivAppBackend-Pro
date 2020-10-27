@@ -5,6 +5,9 @@ from ArxivApp.views import *
 router = routers.SimpleRouter()
 
 router.register(r'auth', AuthViewSet)
+router.register(r'users', UserViewSet)
+router.register(r'blogs', BlogViewSet)
+router.register(r'paper', PaperViewSet)
 
 urlpatterns = []
 
