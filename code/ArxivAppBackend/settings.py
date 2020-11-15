@@ -31,7 +31,7 @@ SECRET_KEY = CONFIG_VARS['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = CONFIG_VARS['DEBUG']
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = CONFIG_VARS['ALLOWED_HOSTS']
 
 
 # Application definition
