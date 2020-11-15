@@ -15,7 +15,7 @@ import io
 import yaml
 
 # Import environment variables
-with io.open('config.yml', 'r') as stream:
+with io.open('configuration/config.yml', 'r') as stream:
     CONFIG_VARS = yaml.safe_load(stream)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -95,13 +95,12 @@ WSGI_APPLICATION = 'ArxivAppBackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': CONFIG_VARS['DATABASE']['HOST'],
-        'PORT': CONFIG_VARS['DATABASE']['PORT'],
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': CONFIG_VARS['DATABASE']['NAME'],
         'USER': CONFIG_VARS['DATABASE']['USER'],
         'PASSWORD': CONFIG_VARS['DATABASE']['PASSWORD'],
-        'OPTIONS': {'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"'},
+        'HOST': CONFIG_VARS['DATABASE']['HOST'],
+        'PORT': CONFIG_VARS['DATABASE']['PORT'],
     }
 }
 
