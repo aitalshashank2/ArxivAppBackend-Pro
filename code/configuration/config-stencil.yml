@@ -12,3 +12,7 @@ DATABASE:
   NAME: ArxivAppDB
   USER: /MySQL/User/
   PASSWORD: /password/of/MySQL/User/
+
+ALLOWED_HOSTS:
+  - "web"
+  - "localhost"
