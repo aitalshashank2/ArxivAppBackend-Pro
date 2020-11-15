@@ -1,18 +1,20 @@
 DEBUG: TRUE
+SECRET_KEY: # YOUR_SECRET_KEY
 
-SECRET_KEY: your/secret/key
+GOOGLE:
+  CLIENT_ID: #GOOGLE_CLIENT_ID
+  CLIENT_SECRET: # GOOGLE_CLIENT_SECRET
 
-GOOGLE: 
-  CLIENT_ID: your/google/client/id
-  CLIENT_SECRET: your/google/client/secret
+FRONTEND:
+  REDIRECT_URI: http://localhost:3000/redirect
 
 DATABASE:
-  HOST: /host/for/MySQL/Server/ (Ex -> 127.0.0.1)
-  PORT: /port/for/MySQL/Server/ (Ex -> 3306)
-  NAME: ArxivAppDB
-  USER: /MySQL/User/
-  PASSWORD: /password/of/MySQL/User/
+    HOST: db
+    PORT: 5432
+    NAME: arxivappdb
+    USER: arxivapp
+    PASSWORD: arxivapp
 
 ALLOWED_HOSTS:
-  - "web"
-  - "localhost"
+    - "web"
+    - "localhost"
