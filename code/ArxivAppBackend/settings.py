@@ -66,7 +66,7 @@ SESSION_COOKIE_NAME = 'arxivapp_sessionid'
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = (
-  'http://localhost:3000',
+    'http://localhost:3000',
 )
 
 ROOT_URLCONF = 'ArxivAppBackend.urls'
