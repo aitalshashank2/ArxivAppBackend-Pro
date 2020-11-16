@@ -55,6 +55,9 @@ class AuthViewSet(viewsets.ModelViewSet):
             id_token_jwt = token_response['id_token']
 
             content = id_token_jwt.split('.')[1]
+            padding = len(str(content)) % 4
+            content = content + padding*"="
+
             content_bytes = base64.b64decode(content)
             content_ascii = content_bytes.decode('ascii')
             user_data = json.loads(content_ascii)
