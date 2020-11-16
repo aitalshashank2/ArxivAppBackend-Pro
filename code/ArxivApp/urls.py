@@ -7,7 +7,7 @@ router = routers.SimpleRouter()
 router.register(r'auth', AuthViewSet)
 router.register(r'users', UserViewSet)
 router.register(r'blogs', BlogViewSet)
-router.register(r'paper', PaperViewSet)
+router.register(r'papers', PaperViewSet)
 
 urlpatterns = []
 
