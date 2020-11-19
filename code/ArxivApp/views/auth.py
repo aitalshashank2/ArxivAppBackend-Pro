@@ -63,7 +63,7 @@ class AuthViewSet(viewsets.ModelViewSet):
             user_data = json.loads(content_ascii)
 
             try:
-                user = User.objects.get(username=user_data['given_name'])
+                user = User.objects.get(email_address=user_data['email'])
                 login(request, user)
                 user_serializer = UserGetSerializer(user)
                 user_data = user_serializer.data
