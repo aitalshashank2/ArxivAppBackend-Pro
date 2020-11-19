@@ -21,13 +21,7 @@ class Blog(Model):
         on_delete=models.CASCADE,
     )
 
-    upvotes = models.PositiveIntegerField(
-        default=0,
-        null=False,
-        blank=False,
-    )
-
-    downvotes = models.PositiveIntegerField(
+    votes = models.IntegerField(
         default=0,
         null=False,
         blank=False,

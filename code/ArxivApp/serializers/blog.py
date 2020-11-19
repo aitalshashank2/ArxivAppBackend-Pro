@@ -1,9 +1,11 @@
 from rest_framework.serializers import ModelSerializer
 
+from ArxivApp.serializers import UserPostSerializer
 from ArxivApp.models import Blog
 
 
 class BlogSerializer(ModelSerializer):
+    author = UserPostSerializer()
     class Meta:
         model = Blog
         fields = [
@@ -11,9 +13,10 @@ class BlogSerializer(ModelSerializer):
             'title',
             'body',
             'author',
-            'upvotes',
-            'downvotes',
+            'votes',
         ]
         read_only_fields = [
             'id',
+            'author',
+            'votes',
         ]
