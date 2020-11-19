@@ -1,10 +1,6 @@
 from ArxivApp.models.base import Model
 from django.db import models
 
-from ArxivApp.constants.subject_classifications import SUBJECT_CLASSIFICATIONS
-from ArxivApp.constants.categories import CATEGORIES
-
-
 class Paper(Model):
     """
     This model is used to create objects of research paper
@@ -35,15 +31,9 @@ class Paper(Model):
     )
 
     subject_classification = models.CharField(
-        max_length=63,
-        choices=SUBJECT_CLASSIFICATIONS,
+        max_length=256,
         null=True,
         blank=True,
-    )
-
-    category = models.CharField(
-        max_length=5,
-        choices=CATEGORIES,
     )
 
     arxiv_id = models.CharField(
