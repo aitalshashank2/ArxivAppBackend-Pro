@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
-LABEL maintainer="Shashank Aital, Shreyas Dodamani"
+LABEL maintainers="Shashank Aital, Shreyas Dodamani"
 
 RUN rm /etc/nginx/conf.d/default.conf
 
-COPY nginx.conf /etc/nginx/conf.d/
+COPY ./configuration/ /etc/nginx/conf.d/

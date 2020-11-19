@@ -1,3 +1,3 @@
 FROM postgres:latest
 
-LABEL maintainer="Shashank Aital, Shreyas Dodamani"
+LABEL maintainers="Shashank Aital, Shreyas Dodamani"

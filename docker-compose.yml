@@ -19,9 +19,10 @@ services:
         build:
             context: ./code
         container_name: arxivapp_web
-        command: python manage.py runserver 0.0.0.0:8000
+        command: sh -c "python manage.py collectstatic --no-input && python manage.py makemigrations && python manage.py migrate && gunicorn ArxivAppBackend.wsgi -b 0.0.0.0:8000"
         volumes:
             - ./code/:/code/
+            - ./static/:/static/
         expose:
             - 8000
         depends_on: 
@@ -34,6 +35,9 @@ services:
         container_name: arxivapp_nginx
         ports:
             - "54321:80"
+        volumes:
+            - ./static/:/static/
+            - ./nginx/configuration/:/etc/nginx/conf.d/
         depends_on: 
             - web
         networks: 

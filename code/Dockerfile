@@ -1,6 +1,6 @@
 FROM python:3.8.5-alpine
 
-LABEL maintainer="Shashank Aital, Shreyas Dodamani"
+LABEL maintainers="Shashank Aital, Shreyas Dodamani"
 
 ENV PYTHONUNBUFFERED 1
 
