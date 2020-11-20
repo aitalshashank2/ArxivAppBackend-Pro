@@ -5,7 +5,7 @@ from ArxivApp.models import Blog
 
 
 class BlogSerializer(ModelSerializer):
-    author = UserPostSerializer()
+    # author = UserPostSerializer()
     class Meta:
         model = Blog
         fields = [
