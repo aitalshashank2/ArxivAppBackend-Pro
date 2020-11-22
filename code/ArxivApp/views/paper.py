@@ -52,22 +52,25 @@ class PaperViewSet(viewsets.ModelViewSet):
         if feed.opensearch_totalresults == 1 and entries[0].title == "Error":
             return Response({'Error': entries[0].summary, }, status=status.HTTP_400_BAD_REQUEST)
 
-        papers = {
-            'arxiv_id': [],
-            'published_time': [],
-            'update_time': [],
-            'title': [],
-            'summary': [],
-            'authors': [],
-            'comments': [],
-            'journal_references': [],
-            'category': [],
-            'pdf_url': [],
-            'html_url': [],
-        }
-        keys = list(papers.keys())
+        keys = [
+            'arxiv_id',
+            'published_time',
+            'update_time',
+            'title',
+            'summary',
+            'authors',
+            'comments',
+            'journal_references',
+            'category',
+            'pdf_url',
+            'html_url',
+        ]
+        
+        papers = []
 
         for entry in entries:
+
+            paper = {}
 
             try:
                 arxiv_id = entry.id.split('/abs/')[-1]
@@ -90,7 +93,8 @@ class PaperViewSet(viewsets.ModelViewSet):
                 title = ""
 
             try:
-                summary = entry.summary
+                summary = entry.summary.replace("\n", " ")
+                print(summary)
             except Exception:
                 summary = ""
 
@@ -125,16 +129,18 @@ class PaperViewSet(viewsets.ModelViewSet):
             except Exception:
                 categories = ""
 
-            papers[keys[0]].append(arxiv_id)
-            papers[keys[1]].append(published)
-            papers[keys[2]].append(updated)
-            papers[keys[3]].append(title)
-            papers[keys[4]].append(summary)
-            papers[keys[5]].append(authors)
-            papers[keys[6]].append(comment)
-            papers[keys[7]].append(journal_ref)
-            papers[keys[8]].append(categories)
-            papers[keys[9]].append(html_url)
-            papers[keys[10]].append(pdf_url)
+            paper[keys[0]] = (arxiv_id)
+            paper[keys[1]] = (published)
+            paper[keys[2]] = (updated)
+            paper[keys[3]] = (title)
+            paper[keys[4]] = (summary)
+            paper[keys[5]] = (authors)
+            paper[keys[6]] = (comment)
+            paper[keys[7]] = (journal_ref)
+            paper[keys[8]] = (categories)
+            paper[keys[9]] = (pdf_url)
+            paper[keys[10]] = (html_url)
 
-        return Response({'Results': papers}, status=status.HTTP_200_OK)
+            papers.append(paper)
+
+        return Response({'papers': papers}, status=status.HTTP_200_OK)
