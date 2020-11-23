@@ -19,6 +19,7 @@ class Blog(Model):
         settings.AUTH_USER_MODEL,
         null=False,
         on_delete=models.CASCADE,
+        related_name='blogs',
     )
 
     votes = models.IntegerField(
