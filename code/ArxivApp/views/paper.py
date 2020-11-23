@@ -40,7 +40,7 @@ class PaperViewSet(viewsets.ModelViewSet):
             value = value.replace(' ', '_').lower()
             url_params += f'{key}:{value}'
 
-        url_params += "&start=0&max_results=5"
+        url_params += "&start=0&max_results=50"
         arxiv_url = f'http://export.arxiv.org/api/query?search_query={url_params}'
 
         arxiv_response = requests.get(arxiv_url)
@@ -94,7 +94,6 @@ class PaperViewSet(viewsets.ModelViewSet):
 
             try:
                 summary = entry.summary.replace("\n", " ")
-                print(summary)
             except Exception:
                 summary = ""
 

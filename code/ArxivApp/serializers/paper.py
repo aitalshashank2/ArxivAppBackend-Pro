@@ -13,7 +13,6 @@ class PaperSerializer(ModelSerializer):
             'summary',
             'comment',
             'subject_classification',
-            'category',
             'arxiv_id',
             'html_url',
             'pdf_url',
