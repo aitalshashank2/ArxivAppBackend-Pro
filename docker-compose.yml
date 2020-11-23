@@ -19,7 +19,7 @@ services:
         build:
             context: ./code
         container_name: arxivapp_web
-        command: sh -c "python manage.py collectstatic --no-input && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+        command: sh -c "python manage.py collectstatic --no-input && python manage.py makemigrations && python manage.py migrate && gunicorn ArxivAppBackend.wsgi -b 0.0.0.0:8000"
         volumes:
             - ./code/:/code/
             - ./static/:/static/
@@ -27,6 +27,14 @@ services:
             - 8000
         depends_on: 
             - db
+        networks: 
+            - arxivapp_network
+
+    frontend:
+        container_name: arxivapp_frontend
+        build: ./frontend
+        volumes:
+            - frontend_build:/frontend/build/
         networks: 
             - arxivapp_network
     
@@ -38,13 +46,16 @@ services:
         volumes:
             - ./static/:/static/
             - ./nginx/configuration/:/etc/nginx/conf.d/
+            - frontend_build:/var/www/frontend/
         depends_on: 
             - web
+            - frontend
         networks: 
             - arxivapp_network
 
 volumes:
     database:
+    frontend_build:
 
 networks: 
     arxivapp_network:
