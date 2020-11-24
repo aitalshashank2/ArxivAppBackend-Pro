@@ -2,55 +2,33 @@
 
 This repository has the backend for ArxApp made as a submission for the course CSN-291, Indian Institute of Technology, Roorkee.
 
----
-
 ## Setup Guidelines
 
 - Firstly, clone this repository on your local computer. Then, change directory.
-	```
-	git clone https://github.com/aitalshashank2/ArxivAppBackend.git
+	```bash
+	git clone https://github.com/aitalshashank2/ArxivAppBackend-Pro.git
 	cd ArxivAppBackend
 	```
-- Initialize a python virtual environment with the name ```.env```. For example you could use ```virtualenv```
-	```
-	virtualenv .env
+
+- Clone the frontend web repository to the ```frontend/``` directory
+	```bash
+	cd frontend
+	git clone https://github.com/ShreyasTheOne/arxiv-app-frontend-web.git
 	```
 
-- Activate the virtual environment ```.env```
-	```
-	. .env/bin/activate
+- Copy ```code/configuration/config-stencil.yml``` to ```code/configuration/config.yml``` and populate the values.
+
+- Build the **docker images**
+	```bash
+	cd ..
+	docker-compose build
 	```
 
-- Check the versions of python and pip. The versions used in development are:
-	```
-	.../ArxivAppBackend$ python --version
-	Python 3.8.2
-	.../ArxivAppBackend$ pip --version
-	pip 20.2.3 from ... (python 3.8)
+- Start the project
+	```bash
+	docker-compose up -d
 	```
 
-- You need to have ```libmysqlclient-dev``` in order to connect to a MySQL Database.
+- Now, visit `http://localhost:54321` to view the Project.
 
-- Install all the necessary dependencies using
-	```
-	pip install -r requirements.txt
-	```
-
-- Set up a database in your MySQL Server for ArxivApp with the name ```ArxivAppDB```.
-- Copy ```config-stencil.yml``` to ```config.yml``` and populate the values.
-
-- Run migrations to integrate the database
-	```
-	python manage.py migrate
-	```
-
-- Check if ArxAppBackend is installed correctly
-	```
-	python manage.py runserver
-	```
-
-- Now, check if django development server is up and running on port 8000 on your local computer.
-
----
-
-Happy Research!
+## Happy Research!
